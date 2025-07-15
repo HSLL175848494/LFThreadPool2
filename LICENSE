@@ -1,0 +1,7 @@
+This project as a whole is licensed under GPLv3 (full text available in LICENSE.GPL3).
+
+## Third-Party Component Notice
+This project utilizes interfaces from the following external libraries:
+moodycamel::ConcurrentQueue (© Cameron Desrochers)
+Dual-licensed under: Simplified BSD / Boost Software License v1.0
+Users must install these components independently and comply with their original license terms.
