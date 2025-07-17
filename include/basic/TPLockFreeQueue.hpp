@@ -72,19 +72,19 @@ namespace HSLL
 		}
 
 		template <class T>
-		bool push(T&& item)
+		bool enqueue(T&& item)
 		{
 			assert(flag);
 			return queue->try_enqueue(std::forward<T>(item));
 		}
 
-		unsigned int pushBulk(TYPE* elements, unsigned int count)
+		unsigned int enqueue_bulk(TYPE* elements, unsigned int count)
 		{
 			assert(flag);
 			return  queue->try_enqueue_bulk(elements, count) ? count : 0;
 		}
 
-		unsigned int pushBulk(TYPE* part1, unsigned int count1, TYPE* part2, unsigned int count2)
+		unsigned int enqueue_bulk(TYPE* part1, unsigned int count1, TYPE* part2, unsigned int count2)
 		{
 			assert(flag);
 			assert(part1 && count1);
@@ -104,25 +104,25 @@ namespace HSLL
 			}
 		}
 
-		bool pop(TYPE& element)
+		bool dequeue(TYPE& element)
 		{
 			assert(flag);
 			return queue->try_dequeue(element);
 		}
 
-		bool wait_pop(TYPE& element, std::int64_t timeout_usecs)
+		bool wait_dequeue(TYPE& element, std::int64_t timeout_usecs)
 		{
 			assert(flag);
 			return queue->wait_dequeue_timed(element, timeout_usecs);
 		}
 
-		unsigned int popBulk(TYPE* elements, unsigned int count)
+		unsigned int dequeue_bulk(TYPE* elements, unsigned int count)
 		{
 			assert(flag);
 			return queue->try_dequeue_bulk(elements, count);
 		}
 
-		unsigned int wait_popBulk(TYPE* elements, unsigned int count, std::int64_t timeout_usecs)
+		unsigned int wait_dequeue_bulk(TYPE* elements, unsigned int count, std::int64_t timeout_usecs)
 		{
 			assert(flag);
 			return queue->wait_dequeue_bulk_timed(elements, count, timeout_usecs);
