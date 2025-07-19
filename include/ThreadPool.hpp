@@ -199,6 +199,8 @@ namespace HSLL
 
 			if (maxThreadNum > 1)
 				monitor = std::thread(&ThreadPool::load_monitor, this);
+
+			return true;
 		}
 
 		/**
